@@ -64,7 +64,7 @@ services:
 
     networks:
       macvlan_network:
-        ipv4_address: 192.168.255.2
+        ipv4_address: 10.1.255.2
 
   # Optional helper: a separate DNS proxy that forwards specific zones to mihomo
   # dnsproxy:
@@ -73,7 +73,7 @@ services:
   #   restart: unless-stopped
   #   command: >-
   #     --cache --hosts-files=/hosts --ipv6-disabled --upstream-mode=parallel
-  #     --upstream "[/www.youtube.com/]192.168.255.2:53"
+  #     --upstream "[/www.youtube.com/]10.1.255.2:53"
   #     --upstream https://dns.google/dns-query
   #     --upstream https://cloudflare-dns.com/dns-query
   #     --upstream https://dns.quad9.net/dns-query
@@ -81,7 +81,7 @@ services:
   #     - mihomo-proxy-ros
   #   networks:
   #     macvlan_network:
-  #       ipv4_address: 192.168.255.4
+  #       ipv4_address: 10.1.255.4
 
 networks:
   macvlan_network:
@@ -91,6 +91,6 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.255.0/24
-          ip_range: 192.168.255.0/24
-          gateway: 192.168.255.1
+        - subnet: 10.1.255.0/24
+          ip_range: 10.1.255.0/24
+          gateway: 10.1.255.1
