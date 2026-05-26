@@ -90,15 +90,15 @@ foreach i in=$slotArray do={
 :set start [/terminal ask]
 }
 
-:do {/interface/veth/add name=MihomoProxyRoS address=192.168.255.2/30 gateway=192.168.255.1
+:do {/interface/veth/add name=MihomoProxyRoS address=10.1.255.2/30 gateway=10.1.255.1
 :put "Create VETH MihomoProxyRoS"} on-error {}
 :do {/interface/list/add name=InAccept include=WAN
 :put "Create interfacelist InAccept"} on-error {}
 :do {/interface/list/member/add interface=MihomoProxyRoS list=InAccept
 :put "Add in interfacelist InAccept interface MihomoProxyRoS"} on-error {}
-:do {/ip/address/add address=192.168.255.1/30 interface=MihomoProxyRoS
+:do {/ip/address/add address=10.1.255.1/30 interface=MihomoProxyRoS
 :put "Add address Mikrotik for interface MihomoProxyRoS"} on-error {}
-:do {/ip/dns/forwarders/add name=MihomoProxyRoS dns-servers=192.168.255.2 verify-doh-cert=no
+:do {/ip/dns/forwarders/add name=MihomoProxyRoS dns-servers=10.1.255.2 verify-doh-cert=no
 :put "Add DNS Forwarders MihomoProxyRoS"} on-error {}
 
 :do {/interface/list/add name=Containers
@@ -153,7 +153,7 @@ add blackhole comment=BlackHole distance=254 dst-address=192.168.0.0/16 gateway=
 }
 :if ([:len [/ip/route/find comment="MihomoProxyRoS0"]] = 0) do={
 /ip route 
-add dst-address=0.0.0.0/0 gateway=192.168.255.2 routing-table=MihomoProxyRoS comment="MihomoProxyRoS0"
+add dst-address=0.0.0.0/0 gateway=10.1.255.2 routing-table=MihomoProxyRoS comment="MihomoProxyRoS0"
 add blackhole comment=BlackHole distance=254 dst-address=10.0.0.0/8 gateway="" routing-table=MihomoProxyRoS
 add blackhole comment=BlackHole distance=254 dst-address=172.16.0.0/12 gateway="" routing-table=MihomoProxyRoS
 add blackhole comment=BlackHole distance=254 dst-address=192.168.0.0/16 gateway="" routing-table=MihomoProxyRoS
@@ -246,7 +246,7 @@ set [find where key=SUB_LINK1 list=MihomoProxyRoS] value=$inputSUBLINK
 }
 
 :if ([:len [/ip/route/find comment="MihomoProxyRoS1"]] = 0) do={
-/ip/route/add dst-address=198.18.0.0/15 gateway=192.168.255.2 comment="MihomoProxyRoS1"
+/ip/route/add dst-address=198.18.0.0/15 gateway=10.1.255.2 comment="MihomoProxyRoS1"
 :put "Add ip route FakeIP"}
 
 /ip/firewall/address-list
@@ -590,14 +590,14 @@ add interval=10s name=route_UP comment="route_UP" on-event="/system/script/run r
 /system/script/environment/remove [find where ]
 :put "Script complete, enjoy!"
 :put "For use WG,AWG pls push conf files on Mikrotik to path /awg_conf/"
-:put "Webpanel UI http://192.168.255.2:9090/ui/"
+:put "Webpanel UI http://10.1.255.2:9090/ui/"
 :put "For donate:"
 :put "- USDT(TRC20):TWDDYD1nk5JnG6FxvEu2fyFqMCY9PcdEsJ"
 :put "- https://boosty.to/petersolomon/donate"
 :put "Invite link Telegram-group https://t.me/+96HVPF3Ww6o3YTNi"
 :log warning "script complete, enjoy!"
 :log warning "For use WG,AWG pls push conf files on Mikrotik to path /awg_conf/"
-:log warning "Webpanel UI http://192.168.255.2:9090/ui/"
+:log warning "Webpanel UI http://10.1.255.2:9090/ui/"
 :log warning "For donate:"
 :log warning "- USDT(TRC20):TWDDYD1nk5JnG6FxvEu2fyFqMCY9PcdEsJ"
 :log warning "- https://boosty.to/petersolomon/donate"
