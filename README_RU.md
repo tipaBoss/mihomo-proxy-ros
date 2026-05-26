@@ -4,10 +4,10 @@
 
 > Мультиархитектурный Docker-контейнер для **MikroTik RouterOS**: [mihomo](https://github.com/metacubex/mihomo) + [byedpi](https://github.com/hufrea/byedpi) + [zapret](https://github.com/bol-van/zapret) + [zapret2](https://github.com/bol-van/zapret2). Управление через ENV + встроенная веб-панель на sh, которая собирает готовые команды для терминала RouterOS.
 
-[![GitHub release](https://img.shields.io/github/v/release/Medium1992/mihomo-proxy-ros?label=release)](https://github.com/Medium1992/mihomo-proxy-ros/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/medium1992/mihomo-proxy-ros?logo=docker&label=docker%20pulls)](https://hub.docker.com/r/medium1992/mihomo-proxy-ros)
-[![Docker Image Size](https://img.shields.io/docker/image-size/medium1992/mihomo-proxy-ros/latest?logo=docker&label=image%20size)](https://hub.docker.com/r/medium1992/mihomo-proxy-ros)
-[![License](https://img.shields.io/github/license/Medium1992/mihomo-proxy-ros)](./LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/tipaBoss/mihomo-proxy-ros?label=release)](https://github.com/tipaBoss/mihomo-proxy-ros/releases)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tipaBoss/mihomo-proxy-ros?logo=docker&label=docker%20pulls)](https://hub.docker.com/r/tipaBoss/mihomo-proxy-ros)
+[![Docker Image Size](https://img.shields.io/docker/image-size/tipaBoss/mihomo-proxy-ros/latest?logo=docker&label=image%20size)](https://hub.docker.com/r/tipaBoss/mihomo-proxy-ros)
+[![License](https://img.shields.io/github/license/tipaBoss/mihomo-proxy-ros)](./LICENSE)
 ![Platforms](https://img.shields.io/badge/arch-amd64%20%7C%20arm64%20%7C%20armv7%20%7C%20armv5-blue)
 [![Telegram](https://img.shields.io/badge/Telegram-группа-blue?logo=telegram)](https://t.me/+96HVPF3Ww6o3YTNi)
 
@@ -270,11 +270,11 @@ LAN_SOCKS_SRCIPCIDR: "192.168.88.0/24"
 }
 :if ($currentMinor >= 21) do={
 :put "Current version RouterOS 7.$currentMinor"
-:set r [/tool fetch url=https://raw.githubusercontent.com/Medium1992/mihomo-proxy-ros/refs/heads/main/script21.rsc mode=https output=user as-value]
+:set r [/tool fetch url=https://raw.githubusercontent.com/tipaBoss/mihomo-proxy-ros/refs/heads/main/script21.rsc mode=https output=user as-value]
 }
 :if ($currentMinor = 20) do={
 :put "Current version RouterOS 7.$currentMinor"
-:set r [/tool fetch url=https://raw.githubusercontent.com/Medium1992/mihomo-proxy-ros/refs/heads/main/script.rsc mode=https output=user as-value]
+:set r [/tool fetch url=https://raw.githubusercontent.com/tipaBoss/mihomo-proxy-ros/refs/heads/main/script.rsc mode=https output=user as-value]
 }
 :if ($currentMinor < 20) do={
 :put "Current version RouterOS $currentVersion"
@@ -302,8 +302,8 @@ $s
 
 После установки тонкая донастройка — либо через **веб-панель на `:80`**, либо через вспомогательные репозитории:
 
-- [DNS_FWD](https://github.com/Medium1992/MikroTik_DNS_FWD) — управление DNS forwarding
-- [IPList](https://github.com/Medium1992/MikroTik_IPlist) — IP-листы
+- [DNS_FWD](https://github.com/tipaBoss/MikroTik_DNS_FWD) — управление DNS forwarding
+- [IPList](https://github.com/tipaBoss/MikroTik_IPlist) — IP-листы
 
 ## 🐳 Docker Compose
 
